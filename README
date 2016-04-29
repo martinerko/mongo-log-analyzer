@@ -1,3 +1,9 @@
 # Mongo log analyzer
 
 This module was born to give you some statistics about your database.
+It can be used to analyze mongod log file to find long running queries,
+histogram statistics and even gives you an more details by showing you sample queries.
+
+## Usage
+
+See samples folder
