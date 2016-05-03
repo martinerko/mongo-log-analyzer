@@ -16,9 +16,7 @@ var path = require('path');
  * Constants
  */
 
-var HISTOGRAM_RANGES_FOR_QUERIES = require('../lib/stats/query').HISTOGRAM_RANGES;
 var LOG_FILE = path.resolve(__dirname, './data/mongod.log');
-
 
 describe("stats module for queries", function() {
   this.timeout(30000);
