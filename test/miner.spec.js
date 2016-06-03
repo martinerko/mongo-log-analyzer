@@ -21,9 +21,9 @@ var LOG_FILE = path.resolve(__dirname, './data/mongod.log');
 describe('miner module for queries', function() {
   this.timeout(30000);
 
-  it('should find 18 query entries in given log file', function(done) {
+  it('should find 20 query entries in given log file', function(done) {
     lib.miner.query(LOG_FILE, function(err, data) {
-      assert.equal(18, data.length);
+      assert.equal(20, data.length);
       done();
     });
   });

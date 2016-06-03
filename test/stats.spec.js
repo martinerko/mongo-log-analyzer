@@ -29,9 +29,9 @@ describe("stats module for queries", function() {
     });
   });
 
-  it("should return 14 statistic records", function(done) {
+  it("should return 15 statistic records", function(done) {
     lib.stats.query(queries, function(err, results) {
-      assert.equal(14, results.length);
+      assert.equal(15, results.length);
       done();
     });
   });
@@ -120,6 +120,30 @@ describe("stats module for queries", function() {
           return item.stage === 'IXSCAN';
         });
         assert.equal(1, ixscanQueries.length);
+      });
+    });
+
+    describe("for 'policy' collection", function() {
+      var policyAllQueryStats;
+      var policyEmptyQueryStats;
+
+      before(function() {
+        policyAllQueryStats = queryStats.filter(function(item) {
+          return item.ns === 'sample-db.policy';
+        });
+
+        policyEmptyQueryStats = policyAllQueryStats.filter(function(item) {
+          return item.query === '{}';
+        });
+      });
+
+      it("should appear twice", function() {
+        assert.equal(2, policyAllQueryStats.length);
+      });
+
+      it("should contain one grouped entry of two records for case where query is empty and orderby is specified and same for both cases", function() {
+        assert.equal(1, policyEmptyQueryStats.length);
+        assert.equal(2, policyEmptyQueryStats[0].count);
       });
     });
 
