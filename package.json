@@ -10,6 +10,7 @@
     "lodash.isobject": "^3.0.2",
     "lodash.pick": "^4.2.0",
     "lodash.remove": "^4.3.0",
+    "lodash.uniq": "^4.3.0",
     "minimist": "^1.2.0",
     "string-template": "^1.0.0"
   },
