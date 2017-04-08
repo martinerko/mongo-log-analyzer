@@ -22,19 +22,19 @@ The standard usage is as below:
 To display a basic statistics about queries simply use --queries argument:
 
 ```sh
-node bin/ test/data/mongod.log  --queries
+node bin/ test/data/mongod.log  --queries . > queries.csv
 ```
 
 To display an additional histogram distribution info add --histogram argument:
 
 ```sh
-node bin/ test/data/mongod.log  --queries --histogram
+node bin/ test/data/mongod.log  --queries --histogram > queries.csv
 ```
 
 To display also a sample of longest running query for each query record type add --sample argument:
 
 ```sh
-node bin/ test/data/mongod.log  --queries --sample
+node bin/ test/data/mongod.log  --queries --sample > queries.csv
 ```
 This can be used together with histogram as well.
 
